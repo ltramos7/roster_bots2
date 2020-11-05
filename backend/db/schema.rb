@@ -10,17 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_155025) do
+ActiveRecord::Schema.define(version: 2020_11_05_163616) do
 
   create_table "bots", force: :cascade do |t|
     t.string "bot_name"
-    t.integer "bot_id"
     t.integer "speed"
     t.integer "strength"
     t.integer "agility"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "roster_id"
+  end
+
+  create_table "rosters", force: :cascade do |t|
+    t.integer "robot_id"
     t.integer "team_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -29,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_155025) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "bot_id"
+    t.integer "roster_id"
   end
 
 end
