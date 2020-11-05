@@ -1,6 +1,6 @@
 class BotsController < ApplicationController
     def index
-        bots = Bot.All
+        bots = Bot.all
         render json: bots
     end
 

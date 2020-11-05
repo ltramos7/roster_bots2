@@ -1,7 +1,7 @@
 class RostersController < ApplicationController
     def index
-        rosters = Roster.All 
-        render json: roster
+        rosters = Roster.all 
+        render json: rosters
     end
 
     def show
@@ -11,6 +11,7 @@ class RostersController < ApplicationController
 
     def create
         roster = Roster.create(roster_params)
+        render json: roster
     end
 
     private
